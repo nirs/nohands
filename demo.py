@@ -13,7 +13,7 @@ YELLOW = "\033[1;33m"
 RESET = "\033[0m"
 
 
-def msg(s="", color=GREEN, delay=1, char_delay=0.025, prompt="$ "):
+def msg(s="", color=GREEN, delay=1, char_delay=0.075, prompt="$ "):
     for i in range(1, len(s)):
         print("{}{}{}{}".format(prompt, color, s[:i], RESET), end="\r")
         time.sleep(char_delay)
