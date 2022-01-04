@@ -1,12 +1,12 @@
 # SPDX-FileCopyrightText: Nir Soffer <nirsof@gail.com>
 # SPDX-License-Identifier: MIT
 
-from demo import *
+from nohands import *
 
 run("clear")
 
 msg()
-msg("### HOW TO USE DEMO.PY ###", delay=3)
+msg("### How to use nohands ###", delay=3)
 msg()
 msg("Never make a typo again!")
 msg("let the computer type for you")

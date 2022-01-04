@@ -3,7 +3,7 @@ SPDX-FileCopyrightText: Nir Soffer <nirsof@gail.com>
 SPDX-License-Identifier: MIT
 -->
 
-# Demo - look ma no hands!
+# Look ma no hands!
 
 A little library for effortless demos.
 
