@@ -21,10 +21,11 @@ msg("or forgetting important steps")
 msg("in the right order")
 msg()
 
-run("git", "log", "--oneline")
+run("git", "log", "--oneline", "HEAD~4...")
 
 msg()
 msg("Keep your demos in source control")
 msg()
-msg("Look ma, no hands!", color=YELLOW)
+msg("Look ma, no hands!", color=YELLOW, delay=1)
 msg()
+msg("Created with https://github.com/nirs/nohands", color=GREY)
