@@ -1,8 +1,9 @@
-# demo - look ma no hands!
+# Demo - look ma no hands!
 
 A little library for effortless demos.
 
+![Example demo](https://i.imgur.com/0QbiQoI.gif)
+
 Example demo:
-```
-python example.py
-```
+
+    python example.py
