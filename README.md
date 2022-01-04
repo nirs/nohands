@@ -7,7 +7,7 @@ SPDX-License-Identifier: MIT
 
 A little library for effortless demos.
 
-![Example demo](https://i.imgur.com/0QbiQoI.gif)
+![Example demo](https://i.imgur.com/dhQkaVj.gif)
 
 To run the example demo:
 
