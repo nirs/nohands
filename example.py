@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: Nir Soffer <nirsof@gail.com>
+# SPDX-License-Identifier: MIT
+
 from demo import *
 
 run("clear")

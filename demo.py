@@ -1,5 +1,5 @@
-# Copyright (C) 2020 Nir Soffer <nirsof@gmail.com>
-# This program is free software; see LICENCE for more details.
+# SPDX-FileCopyrightText: Nir Soffer <nirsof@gail.com>
+# SPDX-License-Identifier: MIT
 
 import subprocess
 import time
