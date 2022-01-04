@@ -1,0 +1,4 @@
+# SPDX-FileCopyrightText: Nir Soffer <nirsof@gmail.com>
+# SPDX-License-Identifier: MIT
+
+recursive-include LICENSES *
