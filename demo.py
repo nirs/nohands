@@ -13,7 +13,7 @@ YELLOW = "\033[1;33m"
 RESET = "\033[0m"
 
 
-def msg(s="", color=GREEN, delay=1, char_delay=0.075, prompt="$ "):
+def msg(s="", color=GREEN, delay=0.1, char_delay=0.075, prompt="$ "):
     for i in range(1, len(s)):
         print("{}{}{}{}".format(prompt, color, s[:i], RESET), end="\r")
         time.sleep(char_delay)
@@ -33,7 +33,7 @@ def show(args):
     for arg in args:
         if len(line) + len(arg) > 80:
             line += sep + "\\"
-            msg(line, color=CYAN, prompt=prompt, delay=0.5)
+            msg(line, color=CYAN, prompt=prompt)
             prompt = "> "
             line = sep = ""
         line += sep + arg
