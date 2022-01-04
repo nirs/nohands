@@ -5,6 +5,7 @@ import subprocess
 import time
 
 __all__ = ["msg", "run", "GREEN", "CYAN", "YELLOW", "GREY"]
+__version__ = "0.1.0"
 
 GREY = "\033[38;5;250m"
 GREEN = "\033[1;32m"
