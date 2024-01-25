@@ -35,7 +35,7 @@ def show(args):
         if len(line) + len(arg) > 80:
             line += sep + "\\"
             msg(line, color=CYAN, prompt=prompt)
-            prompt = "> "
+            prompt = "      "
             line = sep = ""
         line += sep + arg
         sep = " "
