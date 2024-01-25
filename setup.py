@@ -18,6 +18,7 @@ setup(
     name="nohands",
     url="https://github.com/nirs/nohands",
     packages=["nohands"],
+    install_requires=["PyYAML"],
     project_urls={
         "Source": "https://github.com/nirs/nohands",
         "Bug Tracker": "https://github.com/nirs/nohands/issues",
@@ -30,4 +31,7 @@ setup(
         "Intended Audience :: Developers",
         "Topic :: Utilities",
     ],
+    entry_points={
+        "console_scripts": ["nh=nohands.__main__:main"],
+    },
 )

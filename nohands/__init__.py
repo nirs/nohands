@@ -5,7 +5,7 @@ import subprocess
 import time
 
 __all__ = ["msg", "run", "GREEN", "CYAN", "YELLOW", "GREY"]
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 GREY = "\033[38;5;250m"
 GREEN = "\033[1;32m"
@@ -22,16 +22,18 @@ def msg(s="", color=GREEN, delay=0.1, char_delay=0.075, prompt="$ "):
     time.sleep(delay)
 
 
-def run(*args):
-    show(args)
+def run(*args, delay=0.1):
+    show(args, delay=delay)
     subprocess.run(args)
 
 
-def show(args):
+def show(args, delay=0.1):
     prompt = "$ "
     line = sep = ""
 
     for arg in args:
+        if " " in arg:
+            arg = "'" + arg + "'"
         if len(line) + len(arg) > 80:
             line += sep + "\\"
             msg(line, color=CYAN, prompt=prompt)
@@ -40,4 +42,4 @@ def show(args):
         line += sep + arg
         sep = " "
 
-    msg(line, color=CYAN, prompt=prompt)
+    msg(line, color=CYAN, prompt=prompt, delay=delay)
