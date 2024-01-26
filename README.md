@@ -1,5 +1,5 @@
 <!--
-SPDX-FileCopyrightText: Nir Soffer <nirsof@gail.com>
+SPDX-FileCopyrightText: Nir Soffer <nirsof@gmail.com>
 SPDX-License-Identifier: MIT
 -->
 
