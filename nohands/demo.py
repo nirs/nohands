@@ -4,21 +4,23 @@
 import os
 import yaml
 
+import nohands
+
 BASE = ".nh"
 CURRENT = os.path.join(BASE, "current")
 DEMO = os.path.join(BASE, "demo.yaml")
 
 SAMPLE = f"""\
 steps:
-  - name: "## My awesome demo!"
+  - name: "# My awesome demo!"
     run: [tree, {BASE}]
-  - name: "## The demo yaml"
+  - name: "# The demo yaml"
     run: [cat, {DEMO}]
-  - name: "## The current file"
+  - name: "# The current file"
     run: [cat, {CURRENT}]
-  - name: "Created with https://github.com/nirs/nohands/"
+  - name: "# Created with https://github.com/nirs/nohands/"
 options:
-  delay: 0.5
+  delay: {nohands.DELAY}
 """
 
 def init():
@@ -51,10 +53,11 @@ def step(n):
         except IndexError:
             return None
         else:
-            if "delay" not in step:
-                step["delay"] = delay(demo)
+            update(step, demo)
             return step
 
 
-def delay(demo):
-    return demo.get("options", {}).get("delay", 0.1)
+def update(step, demo):
+    defaults = {"delay": nohands.DELAY}
+    defaults.update(demo.get("options", {}))
+    step.update(defaults)
