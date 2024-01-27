@@ -51,10 +51,11 @@ def step(n):
         except IndexError:
             return None
         else:
-            if "delay" not in step:
-                step["delay"] = delay(demo)
+            update(step, demo)
             return step
 
 
-def delay(demo):
-    return demo.get("options", {}).get("delay", 0.1)
+def update(step, demo):
+    defaults = {"delay": 0.1}
+    defaults.update(demo.get("options", {}))
+    step.update(defaults)
