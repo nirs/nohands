@@ -10,13 +10,13 @@ DEMO = os.path.join(BASE, "demo.yaml")
 
 SAMPLE = f"""\
 steps:
-  - name: "## My awesome demo!"
+  - name: "# My awesome demo!"
     run: [tree, {BASE}]
-  - name: "## The demo yaml"
+  - name: "# The demo yaml"
     run: [cat, {DEMO}]
-  - name: "## The current file"
+  - name: "# The current file"
     run: [cat, {CURRENT}]
-  - name: "Created with https://github.com/nirs/nohands/"
+  - name: "# Created with https://github.com/nirs/nohands/"
 options:
   delay: 0.5
 """
