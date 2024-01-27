@@ -16,9 +16,9 @@ RESET = "\033[0m"
 
 def msg(s="", color=GREEN, delay=0.1, char_delay=0.075, prompt="$ "):
     for i in range(1, len(s)):
-        print("{}{}{}{}".format(prompt, color, s[:i], RESET), end="\r")
+        print(f"{prompt}{color}{s[:i]}{RESET}", end="\r")
         time.sleep(char_delay)
-    print("{}{}{}{}".format(prompt, color, s, RESET), end="\n")
+    print(f"{prompt}{color}{s}{RESET}", end="\n")
     time.sleep(delay)
 
 
