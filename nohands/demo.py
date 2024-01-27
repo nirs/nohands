@@ -4,6 +4,8 @@
 import os
 import yaml
 
+import nohands
+
 BASE = ".nh"
 CURRENT = os.path.join(BASE, "current")
 DEMO = os.path.join(BASE, "demo.yaml")
@@ -18,7 +20,7 @@ steps:
     run: [cat, {CURRENT}]
   - name: "# Created with https://github.com/nirs/nohands/"
 options:
-  delay: 0.1
+  delay: {nohands.DELAY}
 """
 
 def init():
@@ -56,6 +58,6 @@ def step(n):
 
 
 def update(step, demo):
-    defaults = {"delay": 0.1}
+    defaults = {"delay": nohands.DELAY}
     defaults.update(demo.get("options", {}))
     step.update(defaults)

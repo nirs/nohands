@@ -13,8 +13,11 @@ CYAN = "\033[1;36m"
 YELLOW = "\033[1;33m"
 RESET = "\033[0m"
 
+DELAY = 0.1
+CHAR_DELAY = 0.075
 
-def msg(s="", color=GREEN, delay=0.1, char_delay=0.075, prompt="$ "):
+
+def msg(s="", color=GREEN, delay=DELAY, char_delay=CHAR_DELAY, prompt="$ "):
     for i in range(1, len(s)):
         print(f"{prompt}{color}{s[:i]}{RESET}", end="\r")
         time.sleep(char_delay)
@@ -22,12 +25,12 @@ def msg(s="", color=GREEN, delay=0.1, char_delay=0.075, prompt="$ "):
     time.sleep(delay)
 
 
-def run(*args, delay=0.1):
+def run(*args, delay=DELAY):
     show(args, delay=delay)
     subprocess.run(args)
 
 
-def show(args, delay=0.1):
+def show(args, delay=DELAY):
     prompt = "$ "
     line = sep = ""
 
