@@ -18,7 +18,7 @@ steps:
     run: [cat, {CURRENT}]
   - name: "# Created with https://github.com/nirs/nohands/"
 options:
-  delay: 0.5
+  delay: 0.1
 """
 
 def init():
