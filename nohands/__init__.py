@@ -17,20 +17,25 @@ DELAY = 0.1
 CHAR_DELAY = 0.075
 
 
-def msg(s="", color=GREEN, delay=DELAY, char_delay=CHAR_DELAY, prompt="$ "):
+def msg(s="", color=GREEN, prompt="$ ", wait=False, delay=DELAY, char_delay=CHAR_DELAY):
     for i in range(1, len(s)):
         print(f"{prompt}{color}{s[:i]}{RESET}", end="\r")
         time.sleep(char_delay)
-    print(f"{prompt}{color}{s}{RESET}", end="\n")
-    time.sleep(delay)
+
+    print(f"{prompt}{color}{s}{RESET}", end="" if wait else "\n")
+
+    if wait:
+        input()
+    else:
+        time.sleep(delay)
 
 
-def run(*args, delay=DELAY):
-    show(args, delay=delay)
+def run(*args, wait=False, delay=DELAY):
+    show(args, wait=wait, delay=delay)
     subprocess.run(args)
 
 
-def show(args, delay=DELAY):
+def show(args, wait=False, delay=DELAY):
     prompt = "$ "
     line = sep = ""
 
@@ -45,4 +50,4 @@ def show(args, delay=DELAY):
         line += sep + arg
         sep = " "
 
-    msg(line, color=CYAN, prompt=prompt, delay=delay)
+    msg(line, color=CYAN, prompt=prompt, wait=wait, delay=delay)
