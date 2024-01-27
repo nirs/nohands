@@ -20,8 +20,10 @@ steps:
     run: [cat, {CURRENT}]
   - name: "# Created with https://github.com/nirs/nohands/"
 options:
+  wait: false
   delay: {nohands.DELAY}
 """
+
 
 def init():
     os.makedirs(BASE, exist_ok=True)
@@ -58,6 +60,6 @@ def step(n):
 
 
 def update(step, demo):
-    defaults = {"delay": nohands.DELAY}
+    defaults = {"wait": False, "delay": nohands.DELAY}
     defaults.update(demo.get("options", {}))
     step.update(defaults)

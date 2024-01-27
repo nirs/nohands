@@ -70,7 +70,7 @@ def run():
     nohands.msg(step["name"])
     if "run" in step:
         try:
-            nohands.run(*step["run"], delay=step["delay"])
+            nohands.run(*step["run"], delay=step["delay"], wait=step["wait"])
         except KeyboardInterrupt:
             # Interrupting a command is not an error. Typical use case is to
             # run "watch command ..." and interrupt the command when needed.
