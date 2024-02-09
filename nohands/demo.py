@@ -10,54 +10,33 @@ BASE = ".nh"
 CURRENT = os.path.join(BASE, "current")
 DEMO = os.path.join(BASE, "demo.yaml")
 
-SAMPLE = f"""\
+SAMPLE = f"""---
 steps:
-  - name: "# My awesome demo!"
-    run: [tree, {BASE}]
-  - name: "# The demo yaml"
-    run: [cat, {DEMO}]
-  - name: "# The current file"
-    run: [cat, {CURRENT}]
-  - name: "# Created with https://github.com/nirs/nohands/"
+  - name: "Welcome to nohands!"
+    run: [nh, --help]
+  - name: "The .nh directory"
+    run: [tree, .nh]
+  - name: "The demo yaml"
+    run: [cat, .nh/demo.yaml]
+  - name: "Watching a program"
+    run: [watch, date]
+  - name: "That's all, folks!"
 options:
-  delay: {nohands.DELAY}
+  delay: 0.5
 """
+
 
 def init():
     os.makedirs(BASE, exist_ok=True)
-    advance(0)
     if not os.path.exists(DEMO):
         with open(DEMO, "w") as f:
             f.write(SAMPLE)
 
 
-def current():
-    with open(CURRENT) as f:
-       return int(f.readline())
-
-
-def advance(n):
-    with open(CURRENT, "w") as f:
-        f.write(f"{n}\n")
-
-
-def reset():
-    advance(0)
-
-
-def step(n):
+def load():
     with open(DEMO) as f:
-        demo = yaml.safe_load(f)
-        try:
-            step = demo["steps"][n]
-        except IndexError:
-            return None
-        else:
-            update(step, demo)
-            return step
+        return yaml.safe_load(f)
 
 
-def update(step, demo):
-    defaults = {"delay": nohands.DELAY}
-    defaults.update(demo.get("options", {}))
-    step.update(defaults)
+def option(doc, name, default=None):
+    return doc.get("options", {}).get(name, default)
